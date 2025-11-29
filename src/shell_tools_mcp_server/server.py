@@ -207,7 +207,7 @@ def main():
     args = parser.parse_args()
 
     if args.http:
-        mcp.run(transport="sse", port=args.port)
+        mcp.run(transport="http", port=args.port)
     else:
         mcp.run(transport="stdio")
 
