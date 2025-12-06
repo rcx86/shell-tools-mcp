@@ -204,10 +204,12 @@ def main():
     parser = argparse.ArgumentParser(description="Shell Tools MCP Server")
     parser.add_argument("--http", action="store_true", help="Run over HTTP (SSE)")
     parser.add_argument("--port", type=int, default=8000, help="Port for HTTP server")
+    parser.add_argument("--host", type=str, default="127.0.0.1", help="Host to run the HTTP server on (default: 127.0.0.1)")
     args = parser.parse_args()
 
     if args.http:
         mcp.settings.port = args.port
+        mcp.settings.host = args.host
         mcp.run(transport="http")
     else:
         mcp.run(transport="stdio")
